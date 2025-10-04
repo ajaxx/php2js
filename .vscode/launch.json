@@ -1,0 +1,134 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Convert Single File (test-blank-lines.php)",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/convert.mjs",
+            "args": [
+                "--src",
+                "${workspaceFolder}/test/test-blank-lines.php",
+                "--dst",
+                "${workspaceFolder}/test",
+                "--log-level",
+                "debug"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Convert Single File (Custom)",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/convert.mjs",
+            "args": [
+                "--src",
+                "${input:phpFile}",
+                "--dst",
+                "${workspaceFolder}",
+                "--log-level",
+                "debug"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Convert Directory (No Recurse)",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/convert.mjs",
+            "args": [
+                "--src",
+                "${workspaceFolder}",
+                "--dst",
+                "${workspaceFolder}",
+                "--no-recurse",
+                "--log-level",
+                "debug"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Convert WordPress wp-login.php",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/convert.mjs",
+            "args": [
+                "--src",
+                "D:\\Src\\WordPress\\wp-login.php",
+                "--dst",
+                "D:\\src\\WordPress-JS",
+                "--log-level",
+                "debug",
+                "--stats"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Convert aj-test.php",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/convert.mjs",
+            "args": [
+                "--src",
+                "D:\\Src\\WordPress\\aj-test.php",
+                "--dst",
+                "D:\\src\\WordPress-JS",
+                "--log-level",
+                "debug"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Test Suite",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/test/test-all-features.mjs",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Convert with Stats",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/convert.mjs",
+            "args": [
+                "--src",
+                "${input:phpFile}",
+                "--dst",
+                "${workspaceFolder}",
+                "--log-level",
+                "debug",
+                "--stats"
+            ],
+            "console": "integratedTerminal"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "phpFile",
+            "type": "promptString",
+            "description": "Enter the path to the PHP file to convert",
+            "default": "${workspaceFolder}/test.php"
+        }
+    ]
+}

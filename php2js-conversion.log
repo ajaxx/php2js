@@ -1,0 +1,555 @@
+[2025-10-03T23:42:12.732] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:12.733] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:12.733] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:12.738] [INFO] php2js - Converted: D:\Src\php2js\test-input\test0.php -> D:\Src\php2js\test-input\test0.js
+[2025-10-03T23:42:12.738] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:12.829] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:12.831] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:12.831] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:12.835] [INFO] php2js - Converted: D:\Src\php2js\test-input\test1.php -> D:\Src\php2js\test-input\test1.js
+[2025-10-03T23:42:12.835] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:12.925] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:12.926] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:12.926] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:12.931] [INFO] php2js - Converted: D:\Src\php2js\test-input\test2.php -> D:\Src\php2js\test-input\test2.js
+[2025-10-03T23:42:12.931] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.018] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.019] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.019] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.024] [INFO] php2js - Converted: D:\Src\php2js\test-input\test3.php -> D:\Src\php2js\test-input\test3.js
+[2025-10-03T23:42:13.025] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.115] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.117] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.117] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.122] [INFO] php2js - Converted: D:\Src\php2js\test-input\test4.php -> D:\Src\php2js\test-input\test4.js
+[2025-10-03T23:42:13.122] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.211] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.212] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.212] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.217] [INFO] php2js - Converted: D:\Src\php2js\test-input\test5.php -> D:\Src\php2js\test-input\test5.js
+[2025-10-03T23:42:13.217] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.308] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.310] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.310] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.314] [INFO] php2js - Converted: D:\Src\php2js\test-input\test6.php -> D:\Src\php2js\test-input\test6.js
+[2025-10-03T23:42:13.314] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.403] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.404] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.404] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.409] [INFO] php2js - Converted: D:\Src\php2js\test-input\test7.php -> D:\Src\php2js\test-input\test7.js
+[2025-10-03T23:42:13.409] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.499] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.500] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.500] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.505] [INFO] php2js - Converted: D:\Src\php2js\test-input\test8.php -> D:\Src\php2js\test-input\test8.js
+[2025-10-03T23:42:13.505] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.593] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.594] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.594] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.598] [INFO] php2js - Converted: D:\Src\php2js\test-input\test9.php -> D:\Src\php2js\test-input\test9.js
+[2025-10-03T23:42:13.599] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.688] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.689] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.689] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.694] [INFO] php2js - Converted: D:\Src\php2js\test-input\test10.php -> D:\Src\php2js\test-input\test10.js
+[2025-10-03T23:42:13.694] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.782] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.783] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.783] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.788] [INFO] php2js - Converted: D:\Src\php2js\test-input\test11.php -> D:\Src\php2js\test-input\test11.js
+[2025-10-03T23:42:13.788] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.878] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.879] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.879] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.884] [INFO] php2js - Converted: D:\Src\php2js\test-input\test12.php -> D:\Src\php2js\test-input\test12.js
+[2025-10-03T23:42:13.884] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:13.974] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:13.976] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.976] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:13.980] [INFO] php2js - Converted: D:\Src\php2js\test-input\test13.php -> D:\Src\php2js\test-input\test13.js
+[2025-10-03T23:42:13.980] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.067] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.069] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.069] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.074] [INFO] php2js - Converted: D:\Src\php2js\test-input\test14.php -> D:\Src\php2js\test-input\test14.js
+[2025-10-03T23:42:14.074] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.163] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.164] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.164] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.169] [INFO] php2js - Converted: D:\Src\php2js\test-input\test15.php -> D:\Src\php2js\test-input\test15.js
+[2025-10-03T23:42:14.169] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.258] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.260] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.260] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.264] [INFO] php2js - Converted: D:\Src\php2js\test-input\test16.php -> D:\Src\php2js\test-input\test16.js
+[2025-10-03T23:42:14.265] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.356] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.357] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.357] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.362] [INFO] php2js - Converted: D:\Src\php2js\test-input\test17.php -> D:\Src\php2js\test-input\test17.js
+[2025-10-03T23:42:14.362] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.449] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.450] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.450] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.455] [INFO] php2js - Converted: D:\Src\php2js\test-input\test18.php -> D:\Src\php2js\test-input\test18.js
+[2025-10-03T23:42:14.455] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.543] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.544] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.544] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.549] [INFO] php2js - Converted: D:\Src\php2js\test-input\test19.php -> D:\Src\php2js\test-input\test19.js
+[2025-10-03T23:42:14.549] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.638] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.639] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.639] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.644] [INFO] php2js - Converted: D:\Src\php2js\test-input\test20.php -> D:\Src\php2js\test-input\test20.js
+[2025-10-03T23:42:14.644] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.732] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.733] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.733] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.738] [INFO] php2js - Converted: D:\Src\php2js\test-input\test21.php -> D:\Src\php2js\test-input\test21.js
+[2025-10-03T23:42:14.738] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.827] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.828] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.828] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.833] [INFO] php2js - Converted: D:\Src\php2js\test-input\test22.php -> D:\Src\php2js\test-input\test22.js
+[2025-10-03T23:42:14.833] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:14.922] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:14.923] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.924] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:14.928] [INFO] php2js - Converted: D:\Src\php2js\test-input\test23.php -> D:\Src\php2js\test-input\test23.js
+[2025-10-03T23:42:14.928] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.017] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.018] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.018] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.023] [INFO] php2js - Converted: D:\Src\php2js\test-input\test24.php -> D:\Src\php2js\test-input\test24.js
+[2025-10-03T23:42:15.023] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.112] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.114] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.114] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.119] [INFO] php2js - Converted: D:\Src\php2js\test-input\test25.php -> D:\Src\php2js\test-input\test25.js
+[2025-10-03T23:42:15.120] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.214] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.216] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.216] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.221] [INFO] php2js - Converted: D:\Src\php2js\test-input\test26.php -> D:\Src\php2js\test-input\test26.js
+[2025-10-03T23:42:15.221] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.308] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.309] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.309] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.314] [INFO] php2js - Converted: D:\Src\php2js\test-input\test27.php -> D:\Src\php2js\test-input\test27.js
+[2025-10-03T23:42:15.315] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.401] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.402] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.402] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.407] [INFO] php2js - Converted: D:\Src\php2js\test-input\test28.php -> D:\Src\php2js\test-input\test28.js
+[2025-10-03T23:42:15.408] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.495] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.497] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.497] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.502] [INFO] php2js - Converted: D:\Src\php2js\test-input\test29.php -> D:\Src\php2js\test-input\test29.js
+[2025-10-03T23:42:15.502] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.591] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.592] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.592] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.597] [INFO] php2js - Converted: D:\Src\php2js\test-input\test30.php -> D:\Src\php2js\test-input\test30.js
+[2025-10-03T23:42:15.597] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.685] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.686] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.686] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.691] [INFO] php2js - Converted: D:\Src\php2js\test-input\test31.php -> D:\Src\php2js\test-input\test31.js
+[2025-10-03T23:42:15.691] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.780] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.782] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.782] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.786] [INFO] php2js - Converted: D:\Src\php2js\test-input\test32.php -> D:\Src\php2js\test-input\test32.js
+[2025-10-03T23:42:15.786] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.874] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.875] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.875] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.880] [INFO] php2js - Converted: D:\Src\php2js\test-input\test33.php -> D:\Src\php2js\test-input\test33.js
+[2025-10-03T23:42:15.880] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:15.968] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:15.969] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.969] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:15.974] [INFO] php2js - Converted: D:\Src\php2js\test-input\test34.php -> D:\Src\php2js\test-input\test34.js
+[2025-10-03T23:42:15.975] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.064] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.065] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.066] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.070] [INFO] php2js - Converted: D:\Src\php2js\test-input\test35.php -> D:\Src\php2js\test-input\test35.js
+[2025-10-03T23:42:16.070] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.158] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.159] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.159] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.164] [INFO] php2js - Converted: D:\Src\php2js\test-input\test36.php -> D:\Src\php2js\test-input\test36.js
+[2025-10-03T23:42:16.164] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.255] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.256] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.256] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.261] [INFO] php2js - Converted: D:\Src\php2js\test-input\test37.php -> D:\Src\php2js\test-input\test37.js
+[2025-10-03T23:42:16.261] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.349] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.350] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.350] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.356] [INFO] php2js - Converted: D:\Src\php2js\test-input\test38.php -> D:\Src\php2js\test-input\test38.js
+[2025-10-03T23:42:16.356] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.445] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.446] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.446] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.451] [INFO] php2js - Converted: D:\Src\php2js\test-input\test39.php -> D:\Src\php2js\test-input\test39.js
+[2025-10-03T23:42:16.451] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.540] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.541] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.541] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.546] [INFO] php2js - Converted: D:\Src\php2js\test-input\test40.php -> D:\Src\php2js\test-input\test40.js
+[2025-10-03T23:42:16.547] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.638] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.640] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.640] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.645] [INFO] php2js - Converted: D:\Src\php2js\test-input\test41.php -> D:\Src\php2js\test-input\test41.js
+[2025-10-03T23:42:16.645] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.732] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.733] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.734] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.738] [INFO] php2js - Converted: D:\Src\php2js\test-input\test42.php -> D:\Src\php2js\test-input\test42.js
+[2025-10-03T23:42:16.739] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.827] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.829] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.829] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.833] [INFO] php2js - Converted: D:\Src\php2js\test-input\test43.php -> D:\Src\php2js\test-input\test43.js
+[2025-10-03T23:42:16.834] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:16.923] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:16.924] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.924] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:16.929] [INFO] php2js - Converted: D:\Src\php2js\test-input\test44.php -> D:\Src\php2js\test-input\test44.js
+[2025-10-03T23:42:16.929] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:17.019] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:17.020] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.020] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.026] [INFO] php2js - Converted: D:\Src\php2js\test-input\test45.php -> D:\Src\php2js\test-input\test45.js
+[2025-10-03T23:42:17.026] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:17.119] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:17.121] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.121] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.127] [INFO] php2js - Converted: D:\Src\php2js\test-input\test46.php -> D:\Src\php2js\test-input\test46.js
+[2025-10-03T23:42:17.127] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:17.215] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:17.216] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.216] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.221] [INFO] php2js - Converted: D:\Src\php2js\test-input\test47.php -> D:\Src\php2js\test-input\test47.js
+[2025-10-03T23:42:17.222] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:17.311] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:17.312] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.312] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.317] [INFO] php2js - Converted: D:\Src\php2js\test-input\test48.php -> D:\Src\php2js\test-input\test48.js
+[2025-10-03T23:42:17.317] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:17.406] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:17.408] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.408] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.412] [INFO] php2js - Converted: D:\Src\php2js\test-input\test49.php -> D:\Src\php2js\test-input\test49.js
+[2025-10-03T23:42:17.412] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:17.500] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:17.501] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.501] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:17.506] [INFO] php2js - Converted: D:\Src\php2js\test-input\test50.php -> D:\Src\php2js\test-input\test50.js
+[2025-10-03T23:42:17.506] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.052] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.053] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.053] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.058] [INFO] php2js - Converted: D:\Src\php2js\test-input\test0.php -> D:\Src\php2js\test-input\test0.js
+[2025-10-03T23:42:37.058] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.149] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.151] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.151] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.155] [INFO] php2js - Converted: D:\Src\php2js\test-input\test1.php -> D:\Src\php2js\test-input\test1.js
+[2025-10-03T23:42:37.155] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.246] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.248] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.248] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.253] [INFO] php2js - Converted: D:\Src\php2js\test-input\test2.php -> D:\Src\php2js\test-input\test2.js
+[2025-10-03T23:42:37.253] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.347] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.348] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.348] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.353] [INFO] php2js - Converted: D:\Src\php2js\test-input\test3.php -> D:\Src\php2js\test-input\test3.js
+[2025-10-03T23:42:37.353] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.443] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.445] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.445] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.450] [INFO] php2js - Converted: D:\Src\php2js\test-input\test4.php -> D:\Src\php2js\test-input\test4.js
+[2025-10-03T23:42:37.450] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.537] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.539] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.539] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.544] [INFO] php2js - Converted: D:\Src\php2js\test-input\test5.php -> D:\Src\php2js\test-input\test5.js
+[2025-10-03T23:42:37.544] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.632] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.633] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.633] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.638] [INFO] php2js - Converted: D:\Src\php2js\test-input\test6.php -> D:\Src\php2js\test-input\test6.js
+[2025-10-03T23:42:37.638] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.726] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.727] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.727] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.732] [INFO] php2js - Converted: D:\Src\php2js\test-input\test7.php -> D:\Src\php2js\test-input\test7.js
+[2025-10-03T23:42:37.732] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.820] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.821] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.821] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.826] [INFO] php2js - Converted: D:\Src\php2js\test-input\test8.php -> D:\Src\php2js\test-input\test8.js
+[2025-10-03T23:42:37.826] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:37.915] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:37.916] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.916] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:37.920] [INFO] php2js - Converted: D:\Src\php2js\test-input\test9.php -> D:\Src\php2js\test-input\test9.js
+[2025-10-03T23:42:37.921] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.009] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.010] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.010] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.014] [INFO] php2js - Converted: D:\Src\php2js\test-input\test10.php -> D:\Src\php2js\test-input\test10.js
+[2025-10-03T23:42:38.015] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.102] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.103] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.103] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.108] [INFO] php2js - Converted: D:\Src\php2js\test-input\test11.php -> D:\Src\php2js\test-input\test11.js
+[2025-10-03T23:42:38.108] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.197] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.198] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.199] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.203] [INFO] php2js - Converted: D:\Src\php2js\test-input\test12.php -> D:\Src\php2js\test-input\test12.js
+[2025-10-03T23:42:38.203] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.292] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.293] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.293] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.298] [INFO] php2js - Converted: D:\Src\php2js\test-input\test13.php -> D:\Src\php2js\test-input\test13.js
+[2025-10-03T23:42:38.298] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.387] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.388] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.388] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.393] [INFO] php2js - Converted: D:\Src\php2js\test-input\test14.php -> D:\Src\php2js\test-input\test14.js
+[2025-10-03T23:42:38.393] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.479] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.480] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.481] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.485] [INFO] php2js - Converted: D:\Src\php2js\test-input\test15.php -> D:\Src\php2js\test-input\test15.js
+[2025-10-03T23:42:38.485] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.574] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.575] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.575] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.580] [INFO] php2js - Converted: D:\Src\php2js\test-input\test16.php -> D:\Src\php2js\test-input\test16.js
+[2025-10-03T23:42:38.581] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.668] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.669] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.669] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.674] [INFO] php2js - Converted: D:\Src\php2js\test-input\test17.php -> D:\Src\php2js\test-input\test17.js
+[2025-10-03T23:42:38.674] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.762] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.764] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.764] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.768] [INFO] php2js - Converted: D:\Src\php2js\test-input\test18.php -> D:\Src\php2js\test-input\test18.js
+[2025-10-03T23:42:38.769] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.856] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.858] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.858] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.863] [INFO] php2js - Converted: D:\Src\php2js\test-input\test19.php -> D:\Src\php2js\test-input\test19.js
+[2025-10-03T23:42:38.863] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:38.952] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:38.953] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.954] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:38.958] [INFO] php2js - Converted: D:\Src\php2js\test-input\test20.php -> D:\Src\php2js\test-input\test20.js
+[2025-10-03T23:42:38.959] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.048] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.049] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.049] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.054] [INFO] php2js - Converted: D:\Src\php2js\test-input\test21.php -> D:\Src\php2js\test-input\test21.js
+[2025-10-03T23:42:39.054] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.141] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.142] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.142] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.147] [INFO] php2js - Converted: D:\Src\php2js\test-input\test22.php -> D:\Src\php2js\test-input\test22.js
+[2025-10-03T23:42:39.147] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.235] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.237] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.237] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.241] [INFO] php2js - Converted: D:\Src\php2js\test-input\test23.php -> D:\Src\php2js\test-input\test23.js
+[2025-10-03T23:42:39.241] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.331] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.333] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.333] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.337] [INFO] php2js - Converted: D:\Src\php2js\test-input\test24.php -> D:\Src\php2js\test-input\test24.js
+[2025-10-03T23:42:39.337] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.425] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.426] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.426] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.431] [INFO] php2js - Converted: D:\Src\php2js\test-input\test25.php -> D:\Src\php2js\test-input\test25.js
+[2025-10-03T23:42:39.431] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.518] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.519] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.519] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.524] [INFO] php2js - Converted: D:\Src\php2js\test-input\test26.php -> D:\Src\php2js\test-input\test26.js
+[2025-10-03T23:42:39.524] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.611] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.612] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.612] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.617] [INFO] php2js - Converted: D:\Src\php2js\test-input\test27.php -> D:\Src\php2js\test-input\test27.js
+[2025-10-03T23:42:39.618] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.707] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.708] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.708] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.713] [INFO] php2js - Converted: D:\Src\php2js\test-input\test28.php -> D:\Src\php2js\test-input\test28.js
+[2025-10-03T23:42:39.713] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.802] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.803] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.803] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.807] [INFO] php2js - Converted: D:\Src\php2js\test-input\test29.php -> D:\Src\php2js\test-input\test29.js
+[2025-10-03T23:42:39.808] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.896] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.898] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.898] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.902] [INFO] php2js - Converted: D:\Src\php2js\test-input\test30.php -> D:\Src\php2js\test-input\test30.js
+[2025-10-03T23:42:39.902] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:39.992] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:39.993] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.994] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:39.998] [INFO] php2js - Converted: D:\Src\php2js\test-input\test31.php -> D:\Src\php2js\test-input\test31.js
+[2025-10-03T23:42:39.999] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.086] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.087] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.087] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.092] [INFO] php2js - Converted: D:\Src\php2js\test-input\test32.php -> D:\Src\php2js\test-input\test32.js
+[2025-10-03T23:42:40.093] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.180] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.181] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.181] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.186] [INFO] php2js - Converted: D:\Src\php2js\test-input\test33.php -> D:\Src\php2js\test-input\test33.js
+[2025-10-03T23:42:40.186] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.274] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.275] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.275] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.280] [INFO] php2js - Converted: D:\Src\php2js\test-input\test34.php -> D:\Src\php2js\test-input\test34.js
+[2025-10-03T23:42:40.280] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.368] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.369] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.369] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.374] [INFO] php2js - Converted: D:\Src\php2js\test-input\test35.php -> D:\Src\php2js\test-input\test35.js
+[2025-10-03T23:42:40.374] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.462] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.463] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.463] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.468] [INFO] php2js - Converted: D:\Src\php2js\test-input\test36.php -> D:\Src\php2js\test-input\test36.js
+[2025-10-03T23:42:40.468] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.555] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.557] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.557] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.562] [INFO] php2js - Converted: D:\Src\php2js\test-input\test37.php -> D:\Src\php2js\test-input\test37.js
+[2025-10-03T23:42:40.562] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.649] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.650] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.650] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.655] [INFO] php2js - Converted: D:\Src\php2js\test-input\test38.php -> D:\Src\php2js\test-input\test38.js
+[2025-10-03T23:42:40.655] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.744] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.746] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.746] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.750] [INFO] php2js - Converted: D:\Src\php2js\test-input\test39.php -> D:\Src\php2js\test-input\test39.js
+[2025-10-03T23:42:40.750] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.838] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.839] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.839] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.844] [INFO] php2js - Converted: D:\Src\php2js\test-input\test40.php -> D:\Src\php2js\test-input\test40.js
+[2025-10-03T23:42:40.844] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:40.931] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:40.933] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.933] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:40.938] [INFO] php2js - Converted: D:\Src\php2js\test-input\test41.php -> D:\Src\php2js\test-input\test41.js
+[2025-10-03T23:42:40.938] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.027] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.028] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.028] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.033] [INFO] php2js - Converted: D:\Src\php2js\test-input\test42.php -> D:\Src\php2js\test-input\test42.js
+[2025-10-03T23:42:41.033] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.121] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.122] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.122] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.127] [INFO] php2js - Converted: D:\Src\php2js\test-input\test43.php -> D:\Src\php2js\test-input\test43.js
+[2025-10-03T23:42:41.127] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.217] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.218] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.218] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.223] [INFO] php2js - Converted: D:\Src\php2js\test-input\test44.php -> D:\Src\php2js\test-input\test44.js
+[2025-10-03T23:42:41.223] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.312] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.313] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.313] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.318] [INFO] php2js - Converted: D:\Src\php2js\test-input\test45.php -> D:\Src\php2js\test-input\test45.js
+[2025-10-03T23:42:41.318] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.408] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.409] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.409] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.414] [INFO] php2js - Converted: D:\Src\php2js\test-input\test46.php -> D:\Src\php2js\test-input\test46.js
+[2025-10-03T23:42:41.414] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.502] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.503] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.503] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.508] [INFO] php2js - Converted: D:\Src\php2js\test-input\test47.php -> D:\Src\php2js\test-input\test47.js
+[2025-10-03T23:42:41.508] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.595] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.597] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.597] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.601] [INFO] php2js - Converted: D:\Src\php2js\test-input\test48.php -> D:\Src\php2js\test-input\test48.js
+[2025-10-03T23:42:41.602] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.690] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.692] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.692] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.696] [INFO] php2js - Converted: D:\Src\php2js\test-input\test49.php -> D:\Src\php2js\test-input\test49.js
+[2025-10-03T23:42:41.696] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.786] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.787] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.787] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.792] [INFO] php2js - Converted: D:\Src\php2js\test-input\test50.php -> D:\Src\php2js\test-input\test50.js
+[2025-10-03T23:42:41.792] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:42:41.880] [INFO] php2js - Starting conversion... (recurse: false, stats: false, log level: info)
+[2025-10-03T23:42:41.881] [INFO] php2js - Source: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.881] [INFO] php2js - Destination: D:\Src\php2js\test-input
+[2025-10-03T23:42:41.885] [INFO] php2js - Converted: D:\Src\php2js\test-input\test51.php -> D:\Src\php2js\test-input\test51.js
+[2025-10-03T23:42:41.886] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:55:54.921] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-03T23:55:54.923] [INFO] php2js - Source: D:\Src\php2js\test\test-classes.php
+[2025-10-03T23:55:54.923] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-03T23:55:54.930] [INFO] php2js - Converted: D:\Src\php2js\test\test-classes.php -> D:\Src\php2js\test\test-classes.js
+[2025-10-03T23:55:54.930] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:56:48.688] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-03T23:56:48.689] [INFO] php2js - Source: D:\Src\php2js\test\test-classes.php
+[2025-10-03T23:56:48.689] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-03T23:56:48.696] [INFO] php2js - Converted: D:\Src\php2js\test\test-classes.php -> D:\Src\php2js\test\test-classes.js
+[2025-10-03T23:56:48.696] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:57:38.756] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-03T23:57:38.757] [INFO] php2js - Source: D:\Src\php2js\test\test-classes.php
+[2025-10-03T23:57:38.758] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-03T23:57:38.764] [INFO] php2js - Converted: D:\Src\php2js\test\test-classes.php -> D:\Src\php2js\test\test-classes.js
+[2025-10-03T23:57:38.764] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:58:05.645] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-03T23:58:05.647] [INFO] php2js - Source: D:\Src\php2js\test\test-classes.php
+[2025-10-03T23:58:05.647] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-03T23:58:05.654] [INFO] php2js - Converted: D:\Src\php2js\test\test-classes.php -> D:\Src\php2js\test\test-classes.js
+[2025-10-03T23:58:05.654] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:58:52.908] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-03T23:58:52.910] [INFO] php2js - Source: D:\Src\php2js\test\test-classes.php
+[2025-10-03T23:58:52.910] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-03T23:58:52.917] [INFO] php2js - Converted: D:\Src\php2js\test\test-classes.php -> D:\Src\php2js\test\test-classes.js
+[2025-10-03T23:58:52.917] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-03T23:59:14.889] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-03T23:59:14.890] [INFO] php2js - Source: D:\Src\php2js\test\test-classes.php
+[2025-10-03T23:59:14.890] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-03T23:59:14.895] [INFO] php2js - Converted: D:\Src\php2js\test\test-classes.php -> D:\Src\php2js\test\test-classes.js
+[2025-10-03T23:59:14.895] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-04T00:04:26.793] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-04T00:04:26.794] [INFO] php2js - Source: D:\Src\php2js\test\test-static.php
+[2025-10-04T00:04:26.794] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-04T00:04:26.801] [INFO] php2js - Converted: D:\Src\php2js\test\test-static.php -> D:\Src\php2js\test\test-static.js
+[2025-10-04T00:04:26.801] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0
+[2025-10-04T00:04:48.955] [INFO] php2js - Starting conversion... (recurse: true, stats: false, log level: info)
+[2025-10-04T00:04:48.957] [INFO] php2js - Source: D:\Src\php2js\test\test-static.php
+[2025-10-04T00:04:48.957] [INFO] php2js - Destination: D:\Src\php2js\test
+[2025-10-04T00:04:48.963] [INFO] php2js - Converted: D:\Src\php2js\test\test-static.php -> D:\Src\php2js\test\test-static.js
+[2025-10-04T00:04:48.963] [INFO] php2js - Conversion complete. Files processed: 1, written: 1, errors: 0

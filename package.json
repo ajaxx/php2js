@@ -1,0 +1,22 @@
+{
+  "name": "php2js-converter",
+  "version": "1.0.0",
+  "description": "PHP to JavaScript converter with automated syntax transformation",
+  "type": "module",
+  "main": "convert.mjs",
+  "scripts": {
+    "convert": "node convert.mjs",
+    "test": "node test/test-all-features.mjs"
+  },
+  "keywords": [
+    "php",
+    "javascript",
+    "converter",
+    "transpiler"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "log4js": "^6.9.1"
+  }
+}
