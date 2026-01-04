@@ -218,10 +218,15 @@ function computeOutPath(srcRoot, file, dstRoot) {
 class ASTTransformer {
     constructor(options = {}) {
         this.output = [];
+        this.imports = []; // Collect import statements to output at top
         this.indent = 0;
         this.currentScope = null;
         this.conditionalDepth = 0; // Track depth inside conditional blocks
         this.usesSuperGlobals = false; // Track if module uses superglobals
+        this.hasTopLevelReturn = false; // Track if module has top-level return
+        this.hasExports = false; // Track if module has exports
+        this.declaredVars = new Set(); // Track declared variables in current scope
+        this.scopeStack = []; // Stack of variable scopes
         this.interfaceStyle = options.interfaceStyle || 'abstract-class';
         this.unsetStyle = options.unsetStyle || 'comment';
         this.defineStyle = options.defineStyle || 'const';
@@ -240,16 +245,24 @@ class ASTTransformer {
         }
 
         this.output = [];
+        this.imports = []; // Reset imports array
         this.indent = 0;
-        this.usesSuperGlobals = false; // Reset flag
+        this.usesSuperGlobals = false; // Reset flags
+        this.hasTopLevelReturn = false;
+        this.hasExports = false;
 
-        // Add file header
-        this.addHeader();
-
-        // Process all top-level nodes
+        // First pass: collect imports and process nodes
         for (const node of ast.children) {
             this.visit(node);
         }
+
+        // Now add header with collected imports at top
+        const bodyOutput = this.output;
+        this.output = [];
+        this.addHeader();
+        
+        // Add the body content after header
+        this.output.push(...bodyOutput);
 
         // Add footer
         this.addFooter();
@@ -259,6 +272,12 @@ class ASTTransformer {
         // Wrap in IIFE if superglobals are used
         if (this.usesSuperGlobals) {
             result = this.wrapInSuperglobalScope(result);
+        }
+        
+        // Wrap in IIFE if module has top-level return
+        // BUT only if it doesn't have exports (exports must be at top level)
+        if (this.hasTopLevelReturn && !this.hasExports) {
+            result = this.wrapInModuleFunction(result);
         }
 
         return result;
@@ -293,6 +312,43 @@ class ASTTransformer {
             
             result.push(line);
         }
+        
+        return result.join('\n');
+    }
+    
+    /**
+     * Wrap module in IIFE for top-level return support
+     * This allows return statements to exit the module initialization
+     */
+    wrapInModuleFunction(code) {
+        const lines = code.split('\n');
+        const result = [];
+        let foundFirstNonComment = false;
+        let headerLines = [];
+        let bodyLines = [];
+        
+        // Separate header comments from body
+        for (const line of lines) {
+            const trimmed = line.trim();
+            if (!foundFirstNonComment && (line.startsWith('//') || trimmed === '')) {
+                headerLines.push(line);
+            } else {
+                foundFirstNonComment = true;
+                bodyLines.push(line);
+            }
+        }
+        
+        // Build wrapped output
+        result.push(...headerLines);
+        if (headerLines.length > 0) {
+            result.push('');
+        }
+        result.push('// Module wrapped in function to support top-level return');
+        result.push('(function() {');
+        result.push('');
+        result.push(...bodyLines.map(line => line ? '    ' + line : ''));
+        result.push('');
+        result.push('})();');
         
         return result.join('\n');
     }
@@ -395,12 +451,20 @@ class ASTTransformer {
         const isTopLevel = (this.currentScope == null && this.conditionalDepth === 0);
         const exportPrefix = isTopLevel ? 'export ' : '';
         
+        if (isTopLevel && exportPrefix) {
+            this.hasExports = true;
+        }
+        
         this.writeLine(`${exportPrefix}function ${name}(${params}) {`);
         this.indent++;
         
-        // Track scope for define() handling
+        // Track scope for define() handling and variable declarations
         const prevScope = this.currentScope;
         this.currentScope = 'function';
+        
+        // Push new variable scope
+        this.scopeStack.push(this.declaredVars);
+        this.declaredVars = new Set();
         
         if (node.body && node.body.children) {
             for (const stmt of node.body.children) {
@@ -408,6 +472,8 @@ class ASTTransformer {
             }
         }
         
+        // Pop variable scope
+        this.declaredVars = this.scopeStack.pop();
         this.currentScope = prevScope;
         this.indent--;
         this.writeLine('}');
@@ -419,11 +485,31 @@ class ASTTransformer {
      */
     visitClass(node) {
         const name = node.name.name || node.name;
-        const extendsClause = node.extends ? ` extends ${node.extends.name}` : '';
+        
+        // Handle extends clause - convert PHP namespace references to JS imports
+        let extendsClause = '';
+        if (node.extends) {
+            let parentClass = node.extends.name || node.extends;
+            // Strip leading backslash (global namespace indicator in PHP)
+            if (typeof parentClass === 'string' && parentClass.startsWith('\\')) {
+                parentClass = parentClass.substring(1);
+            }
+            // Convert namespace separators to underscores or keep as-is
+            // PHP: \ParagonIE_Sodium_Crypto -> JS: ParagonIE_Sodium_Crypto
+            // PHP: \ParagonIE\Sodium\Crypto -> JS: ParagonIE_Sodium_Crypto
+            if (typeof parentClass === 'string') {
+                parentClass = parentClass.replace(/\\/g, '_');
+            }
+            extendsClause = ` extends ${parentClass}`;
+        }
         
         // Only export at true top level (not inside conditionals or other scopes)
         const isTopLevel = (this.currentScope == null && this.conditionalDepth === 0);
         const exportPrefix = isTopLevel ? 'export ' : '';
+        
+        if (isTopLevel && exportPrefix) {
+            this.hasExports = true;
+        }
         
         this.writeLine(`${exportPrefix}class ${name}${extendsClause} {`);
         this.indent++;
@@ -490,12 +576,23 @@ class ASTTransformer {
         this.writeLine(`${isStatic}${name}(${params}) {`);
         this.indent++;
         
+        // Track scope for return statement handling and variable declarations
+        const prevScope = this.currentScope;
+        this.currentScope = 'method';
+        
+        // Push new variable scope
+        this.scopeStack.push(this.declaredVars);
+        this.declaredVars = new Set();
+        
         if (node.body && node.body.children) {
             for (const stmt of node.body.children) {
                 this.visit(stmt);
             }
         }
         
+        // Pop variable scope
+        this.declaredVars = this.scopeStack.pop();
+        this.currentScope = prevScope;
         this.indent--;
         this.writeLine('}');
         this.writeLine('');
@@ -518,7 +615,18 @@ class ASTTransformer {
         let operator = node.operator || '=';
         if (operator === '.=') operator = '+=';
         
-        this.writeLine(`${left} ${operator} ${right};`);
+        // Check if this is a simple variable assignment (not property access)
+        // and if it needs a declaration
+        let declaration = '';
+        if (node.left && node.left.kind === 'variable' && operator === '=') {
+            const varName = left;
+            if (!this.declaredVars.has(varName)) {
+                this.declaredVars.add(varName);
+                declaration = 'let ';
+            }
+        }
+        
+        this.writeLine(`${declaration}${left} ${operator} ${right};`);
     }
 
     /**
@@ -600,11 +708,31 @@ class ASTTransformer {
      * Visit Return statement
      */
     visitReturn(node) {
-        if (node.expr) {
-            const expr = this.transformExpression(node.expr);
-            this.writeLine(`return ${expr};`);
+        // Check if we're at top level (not inside a function)
+        const isTopLevel = (this.currentScope == null);
+        
+        if (isTopLevel) {
+            // Mark that this module has a top-level return
+            this.hasTopLevelReturn = true;
+            
+            // Top-level returns are invalid in ES6 modules with exports
+            // Comment them out with a warning
+            if (node.expr) {
+                const expr = this.transformExpression(node.expr);
+                this.writeLine(`// WARNING: Top-level return not supported in ES6 modules`);
+                this.writeLine(`// Original: return ${expr};`);
+            } else {
+                this.writeLine(`// WARNING: Top-level return not supported in ES6 modules`);
+                this.writeLine(`// Original: return;`);
+            }
         } else {
-            this.writeLine('return;');
+            // Normal return inside a function
+            if (node.expr) {
+                const expr = this.transformExpression(node.expr);
+                this.writeLine(`return ${expr};`);
+            } else {
+                this.writeLine('return;');
+            }
         }
     }
 
@@ -735,19 +863,32 @@ class ASTTransformer {
      * Visit Case statement
      */
     visitCase(node) {
+        // Check if case has a body (not just fallthrough)
+        const hasBody = node.body && node.body.children && node.body.children.length > 0;
+        
         if (node.test) {
             const test = this.transformExpression(node.test);
-            this.writeLine(`case ${test}:`);
+            if (hasBody) {
+                this.writeLine(`case ${test}: {`);
+            } else {
+                this.writeLine(`case ${test}:`);
+            }
         } else {
-            this.writeLine('default:');
+            if (hasBody) {
+                this.writeLine('default: {');
+            } else {
+                this.writeLine('default:');
+            }
         }
-        this.indent++;
-        if (node.body && node.body.children) {
+        
+        if (hasBody) {
+            this.indent++;
             for (const child of node.body.children) {
                 this.visit(child);
             }
+            this.indent--;
+            this.writeLine('}');
         }
-        this.indent--;
     }
 
     /**
@@ -940,23 +1081,24 @@ class ASTTransformer {
     }
 
     /**
-     * Visit Use group (grouped import statements)
+     * Visit Use group (both single and grouped import statements)
+     * PHP parses both "use X;" and "use X\{A, B};" as usegroup
      */
     visitUsegroup(node) {
-        // Grouped use statements: use Namespace\{ClassA, ClassB};
         const prefix = node.name || '';
         const items = node.items || [];
         
         for (const item of items) {
             const name = item.name || '';
-            const alias = item.alias || name;
+            const alias = item.alias || null;
             const fullName = prefix ? `${prefix}\\${name}` : name;
             const jsPath = fullName.replace(/\\/g, '/');
             
-            if (alias && alias !== name) {
-                this.writeLine(`import ${alias} from './${jsPath}.js';`);
+            // Collect imports to be output at top of file
+            if (alias) {
+                this.imports.push(`import ${alias} from './${jsPath}.js';`);
             } else {
-                this.writeLine(`import '${jsPath}.js';`);
+                this.imports.push(`import './${jsPath}.js';`);
             }
         }
     }
@@ -1163,10 +1305,13 @@ class ASTTransformer {
                         .replace(/\t/g, '\\t');
                     return `"${escaped}"`;
                 }
-                // Single-quoted strings - escape single quotes and backslashes
+                // Single-quoted strings - escape single quotes, backslashes, and newlines
                 const singleQuoted = String(node.value || '')
                     .replace(/\\/g, '\\\\')
-                    .replace(/'/g, "\\'");
+                    .replace(/'/g, "\\'")
+                    .replace(/\n/g, '\\n')
+                    .replace(/\r/g, '\\r')
+                    .replace(/\t/g, '\\t');
                 return `'${singleQuoted}'`;
             
             case 'number':
@@ -1225,8 +1370,16 @@ class ASTTransformer {
                 // Array literal
                 if (this.isAssociativeArray(node)) {
                     // Associative array -> object
-                    const entries = node.items.map(item => {
-                        const key = this.transformExpression(item.key);
+                    const entries = node.items.map((item, index) => {
+                        let key;
+                        if (item.key) {
+                            key = this.transformExpression(item.key);
+                        } else {
+                            // No key provided - use numeric index or value as key
+                            // For mixed arrays, use the value itself as the key with undefined value
+                            const value = this.transformExpression(item.value);
+                            return `${value}: undefined`;
+                        }
                         const value = this.transformExpression(item.value);
                         return `${key}: ${value}`;
                     }).join(', ');
@@ -1431,8 +1584,10 @@ class ASTTransformer {
                     if (node.body && node.body.children) {
                         const savedOutput = this.output;
                         const savedIndent = this.indent;
+                        const savedScope = this.currentScope;
                         this.output = [];
                         this.indent = 0;
+                        this.currentScope = 'closure';
                         
                         for (const stmt of node.body.children) {
                             this.visit(stmt);
@@ -1441,6 +1596,7 @@ class ASTTransformer {
                         body = this.output.join('');
                         this.output = savedOutput;
                         this.indent = savedIndent;
+                        this.currentScope = savedScope;
                     }
                     
                     return `(${params}) => {${usesComment}\n${body}}`;
@@ -1564,10 +1720,19 @@ class ASTTransformer {
         this.writeLine('//');
         this.writeLine('');
         
+        // Output collected imports first (ES6 requires imports at top)
+        if (this.imports.length > 0) {
+            for (const importStmt of this.imports) {
+                this.writeLine(importStmt);
+            }
+            this.writeLine('');
+        }
+        
         // Add utility module import if using module style
         const moduleImport = this.utilityManager.getModuleImport();
         if (moduleImport) {
             this.writeLine(moduleImport);
+            this.writeLine('');
         }
         
         this.writeLine('// Environment shims');
