@@ -32,7 +32,7 @@ describe('AST Advanced Features', () => {
   });
 
   it('converts switch statement', async () => {
-    const php = `switch ($var) {
+    const php = `switch ($value) {
     case 1:
         echo "one";
         break;
@@ -43,7 +43,7 @@ describe('AST Advanced Features', () => {
         echo "other";
 }`;
     const out = await run(php);
-    expect(out).toContain('switch (var) {');
+    expect(out).toContain('switch (value) {');
     expect(out).toContain('case 1:');
     expect(out).toContain('console.log("one");');
     expect(out).toContain('break;');
@@ -64,9 +64,9 @@ describe('AST Advanced Features', () => {
   });
 
   it('converts unset to comment by default (strict mode safe)', async () => {
-    const out = await run('unset($var);');
-    expect(out).toContain('// unset(var);');
-    expect(out).not.toContain('delete var;');
+    const out = await run('unset($myVar);');
+    expect(out).toContain('// unset(myVar);');
+    expect(out).not.toContain('delete myVar;');
   });
 
   it('converts multiple unset variables to comments', async () => {
@@ -77,8 +77,8 @@ describe('AST Advanced Features', () => {
   });
 
   it('converts unset to delete when unsetStyle is delete', async () => {
-    const out = await transpile('unset($var);', { filename: 'test.php', unsetStyle: 'delete' });
-    expect(out).toContain('delete var;');
+    const out = await transpile('unset($myVar);', { filename: 'test.php', unsetStyle: 'delete' });
+    expect(out).toContain('delete myVar;');
     expect(out).not.toContain('// unset');
   });
 

@@ -1098,13 +1098,14 @@ class ASTTransformer {
 
     /**
      * Escape JavaScript reserved keywords by appending underscore
+     * Note: 'this' and 'super' are excluded as they're valid in their PHP contexts
      */
     escapeReservedKeyword(name) {
         const reserved = new Set([
             'break', 'case', 'catch', 'class', 'const', 'continue', 'debugger',
             'default', 'delete', 'do', 'else', 'export', 'extends', 'finally',
             'for', 'function', 'if', 'import', 'in', 'instanceof', 'let', 'new',
-            'return', 'super', 'switch', 'this', 'throw', 'try', 'typeof', 'var',
+            'return', 'switch', 'throw', 'try', 'typeof', 'var',
             'void', 'while', 'with', 'yield', 'enum', 'implements', 'interface',
             'package', 'private', 'protected', 'public', 'static', 'await'
         ]);
@@ -1264,10 +1265,17 @@ class ASTTransformer {
                     return `!${expr}`;
                 }
             
+            case 'name':
+                // Simple name/identifier (constants, function names, class names)
+                {
+                    const nm = node.name || '';
+                    return this.escapeReservedKeyword(String(nm));
+                }
+            
             case 'constant':
                 {
                     const nm = (node.name && (node.name.name || node.name)) || '';
-                    return String(nm);
+                    return this.escapeReservedKeyword(String(nm));
                 }
             
             case 'magic':
