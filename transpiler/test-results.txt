@@ -1,0 +1,78 @@
+Running AST Transpiler Tests
+================================================================================
+✓ Variables - strip $
+✓ Concat - basic
+✓ Echo -> console.log
+✓ Object operator
+✓ Static operator
+✓ Function declaration (export)
+✓ Class declaration (export) + method
+✓ Foreach - value only
+✓ Foreach - key/value
+✓ If/else
+✓ Arrays - indexed
+✓ Arrays - associative
+✗ Interpolated string
+  ✗ Missing expected: /msg\s*=\s*`Hello, \$\{name\}`/
+
+--- Generated Output ---
+//
+// Transpiled from PHP using AST-based transpiler
+// Generated: 2026-01-03T21:42:40.991Z
+//
+
+// Environment shims
+const __ENV__ = {
+    isNode: typeof process !== 'undefined' && process.versions?.node,
+    isBrowser: typeof window !== 'undefined'
+};
+
+// HTML output helper
+function __outputHtml(lines) {
+    console.log(lines.join('\n'));
+}
+
+name = "John";
+msg = ``;
+
+export { __ENV__, __outputHtml };
+
+--- End Output ---
+
+✓ Return statement
+✓ Inline HTML
+✗ Equality operators
+  ✗ Missing expected: ok1 = (1 === 1);
+  ✗ Missing expected: ok2 = (2 !== 3);
+
+--- Generated Output ---
+//
+// Transpiled from PHP using AST-based transpiler
+// Generated: 2026-01-03T21:42:40.992Z
+//
+
+// Environment shims
+const __ENV__ = {
+    isNode: typeof process !== 'undefined' && process.versions?.node,
+    isBrowser: typeof window !== 'undefined'
+};
+
+// HTML output helper
+function __outputHtml(lines) {
+    console.log(lines.join('\n'));
+}
+
+ok1 = 1 === 1;
+ok2 = 2 !== 3;
+
+export { __ENV__, __outputHtml };
+
+--- End Output ---
+
+✓ Property chain
+✓ Concat with function call
+✓ Nested arrays
+✓ Multiple statements and return
+================================================================================
+
+Tests: 18 passed, 2 failed, 20 total

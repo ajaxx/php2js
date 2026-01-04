@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "PHP to JavaScript converter with automated syntax transformation",
   "type": "module",
-  "main": "convert.mjs",
+  "main": "regex/convert.mjs",
   "scripts": {
-    "convert": "node convert.mjs",
-    "test": "node test/test-all-features.mjs"
+    "convert": "node regex/convert.mjs",
+    "transpile": "node transpiler/transpiler.mjs",
+    "test": "node regex/test-all-features.mjs",
+    "test:ast": "vitest run transpiler/__tests__ --run",
+    "test:regex": "vitest run regex/__tests__ --run",
+    "test:regex:legacy": "node regex/test-all-features.mjs",
+    "test:all": "npm run test:regex && npm run test:ast"
   },
   "keywords": [
     "php",
@@ -17,6 +22,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "log4js": "^6.9.1"
+    "log4js": "^6.9.1",
+    "php-parser": "^3.2.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.7.4",
+    "vitest": "^1.6.1"
   }
 }
