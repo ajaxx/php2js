@@ -1,6 +1,22 @@
 # PHP to JavaScript Converter
 
-A comprehensive tool for converting PHP code to JavaScript with automated syntax transformation and intelligent handling of PHP-specific constructs.
+A comprehensive tool for converting PHP code to JavaScript with two transpiler implementations:
+- **Regex-based** - Fast, proven, handles bulk WordPress conversion
+- **AST-based** - Accurate, context-aware, ideal for complex code
+
+## Project Structure
+
+```
+php2js/
+├── regex/              # Regex-based transpiler (original)
+│   ├── convert.mjs     # Main converter
+│   └── *.md            # Documentation
+├── transpiler/         # AST-based transpiler (new)
+│   ├── transpiler.mjs  # AST converter
+│   └── README.md       # Documentation
+├── test/               # Test files
+└── README.md           # This file
+```
 
 ## Quick Start
 
@@ -12,27 +28,56 @@ npm install
 
 ### Basic Usage
 
+**Regex-based converter (recommended for bulk conversion):**
 ```bash
 # Convert a single file
-node convert.mjs --src ./file.php --dst ./output
+node regex/convert.mjs --src ./file.php --dst ./output
 
 # Convert a directory
-node convert.mjs --src ./php-files --dst ./js-files
+node regex/convert.mjs --src ./php-files --dst ./js-files
 
 # Convert with detailed logging
-node convert.mjs --src ./php-files --dst ./js-files --log-level debug --stats
+node regex/convert.mjs --src ./php-files --dst ./js-files --log-level debug --stats
+
+# Convert with Prettier formatting
+node regex/convert.mjs --src ./php-files --dst ./js-files --format
+
+# Or use npm script
+npm run convert -- --src ./file.php --dst ./output
+```
+
+**AST-based transpiler (recommended for accuracy):**
+```bash
+# Convert a single file
+node transpiler/transpiler.mjs input.php output.js
+
+# Or use npm script
+npm run transpile input.php output.js
 ```
 
 ## Command-Line Options
 
+### Common Options (Both Transpilers)
+
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--src <path>` | Source file or directory | `../../WordPress` |
-| `--dst <path>` | Destination directory | `..` |
+| `--src <path>` | Source file or directory | Required |
+| `--dst <path>` | Destination directory | Required |
 | `--recurse <bool>` | Enable directory recursion | `true` |
 | `--no-recurse` | Disable directory recursion | - |
 | `--stats` | Show processing statistics | `false` |
 | `--log-level <level>` | Set log level (trace/debug/info/warn/error/fatal) | `info` |
+| `--format` | Format output with Prettier (requires prettier package) | `false` |
+
+### AST Transpiler Only
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--interface-style <style>` | Interface conversion: `abstract-class`, `comment`, `jsdoc`, `empty-class` | `abstract-class` |
+| `--utility-style <style>` | Utility function style: `inline`, `module`, `none` | `inline` |
+| `--utility-module <name>` | Utility module name (when using module style) | `php-utils` |
+| `--unset-style <style>` | Unset conversion: `comment` (strict mode safe), `delete` | `comment` |
+| `--define-style <style>` | Define conversion: `const` (safe), `export-const`, `comment` | `const` |
 
 ## Features
 
@@ -69,44 +114,85 @@ node convert.mjs --src ./php-files --dst ./js-files --log-level debug --stats
 - ✅ Processing statistics
 - ✅ Error tracking with stack traces
 
+## Transpiler Comparison
+
+| Feature | Regex-Based | AST-Based |
+|---------|-------------|-----------|
+| **Speed** | ⚡ Very Fast (~8s for 1,663 files) | 🐢 Moderate (parsing overhead) |
+| **Accuracy** | ✓ Good | ✓✓ Excellent |
+| **Context-aware** | ⚠️ Limited | ✓✓ Full |
+| **WordPress Support** | ✓✓ 100% | ✓✓ 99.94% (1,662/1,663) |
+| **Newline issues** | ⚠️ Some (with post-processing) | ✓ None |
+| **Maintenance** | ⚠️ Complex regex chains | ✓ Clear visitor pattern |
+| **Interface Handling** | ❌ No | ✓✓ 4 configurable styles |
+| **Exception Handling** | ⚠️ Basic | ✓✓ Full try/catch/finally |
+| **OOP Features** | ✓ Good | ✓✓ Comprehensive |
+| **Use case** | Maximum speed, simple code | Complex OOP, accuracy-critical |
+
 ## Documentation
 
-- **[CONVERSION_FEATURES.md](CONVERSION_FEATURES.md)** - Complete feature list and examples
-- **[MODULE_WRAPPER.md](MODULE_WRAPPER.md)** - IIFE wrapper pattern documentation
-- **[LOGGING.md](LOGGING.md)** - Logging configuration and usage
+### Regex-Based Transpiler
+- **[regex/README.md](regex/README.md)** - Regex transpiler documentation
+- **[regex/CONVERSION_FEATURES.md](regex/CONVERSION_FEATURES.md)** - Complete feature list
+- **[regex/MODULE_WRAPPER.md](regex/MODULE_WRAPPER.md)** - IIFE wrapper pattern
+- **[regex/LOGGING.md](regex/LOGGING.md)** - Logging configuration
+- **[regex/OPERATOR_CONVERSION.md](regex/OPERATOR_CONVERSION.md)** - Operator details
+- **[regex/HTML_CONVERSION_IMPROVEMENT.md](regex/HTML_CONVERSION_IMPROVEMENT.md)** - HTML handling
+- **[regex/REFACTORING_NOTES.md](regex/REFACTORING_NOTES.md)** - Development notes
+
+### AST-Based Transpiler
+- **[transpiler/README.md](transpiler/README.md)** - AST transpiler documentation
 
 ## Examples
 
 ### Debug Mode
 ```bash
-node convert.mjs --src ./wordpress --dst ./output --log-level debug --stats
+node regex/convert.mjs --src ./wordpress --dst ./output --log-level debug --stats
 ```
 
 ### Quiet Mode (Errors Only)
 ```bash
-node convert.mjs --src ./wordpress --dst ./output --log-level error
+node regex/convert.mjs --src ./wordpress --dst ./output --log-level error
 ```
 
 ### Single File with Stats
 ```bash
-node convert.mjs --src ./wp-login.php --dst ./output --stats
+node regex/convert.mjs --src ./wp-login.php --dst ./output --stats
 ```
 
 ### Directory Without Recursion
 ```bash
-node convert.mjs --src ./php-files --dst ./js-files --no-recurse
+node regex/convert.mjs --src ./php-files --dst ./js-files --no-recurse
 ```
 
 ## Test Suite
 
-Run the comprehensive test suite:
+### Regex-Based Transpiler Tests
 
 ```bash
-node test-all-features.mjs
+npm test
+# or
+node regex/test-all-features.mjs
 ```
 
-Current test status: **44 passed, 3 failed** (47 total tests)
+Current test status: **59 passed, 3 failed** (62 total tests)
 - The 3 failures are by-design IIFE wrapper tests
+
+### AST-Based Transpiler Tests
+
+```bash
+npm run test:ast
+```
+
+Current test status: **170 passed, 12 skipped** (182 total tests)
+- Comprehensive coverage of all PHP language features
+- 12 tests for interface handling (all 4 conversion styles)
+- 13 tests for utility functions (inline, module, none styles)
+- 6 tests for PHPDoc comment preservation
+- 14 tests for define handling (const, export-const, comment styles)
+- 12 tests for unset handling (comment and delete styles)
+- 15 tests for superglobal wrapping (automatic IIFE scoping)
+- Skipped tests are for future enhancements (blank lines, comments)
 
 ## Output Structure
 

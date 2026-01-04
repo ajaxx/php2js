@@ -19,7 +19,7 @@ async function transformPhpToJs(phpCode, filename) {
     
     // Run converter
     try {
-        execSync(`node ../convert.mjs --src test-input --dst test-input --no-recurse`, {
+        execSync(`node convert.mjs --src test-input --dst test-input --no-recurse`, {
             cwd: __dirname,
             stdio: 'pipe'
         });
@@ -667,6 +667,109 @@ test('Array key named include',
         /['"]include['"]\s*:\s*link_cat/
     ],
     ['// TODO: import', '(from include)']
+);
+
+// 51. HTML entity semicolons in echo statements
+test('HTML entity semicolons in echo statements',
+    `echo '<label for="user_email">' . __( 'Email&nbsp;Address:' ) . '</label>';`,
+    [
+        "console.log('<label for=\"user_email\">'  + __( 'Email&nbsp;Address:' )  + '</label>');",
+        'Email&nbsp;Address:'
+    ],
+    ['Email&nbsp);Address:', 'nbsp);']
+);
+
+// 52. Multiple HTML entities in single echo
+test('Multiple HTML entities in echo',
+    `echo '<p>Hello&nbsp;World&mdash;Test&copy;</p>';`,
+    [
+        "console.log('<p>Hello&nbsp;World&mdash;Test&copy;</p>');",
+        '&nbsp;',
+        '&mdash;',
+        '&copy;'
+    ],
+    ['&nbsp);', '&mdash);', '&copy);']
+);
+
+// 53. HTML comments in string literals
+test('HTML comments in string literals',
+    `$content = '<!-- wp:cover {"align":"full"} -->
+<div class="wp-block-cover">
+<!-- /wp:cover -->';`,
+    [
+        "content = '<!-- wp:cover",
+        '-->',
+        '<!-- /wp:cover -->'
+    ],
+    ['-.', '-. ']
+);
+
+// 54. HTML comments with object operators
+test('HTML comments should not be corrupted by -> conversion',
+    `echo '<!-- wp:navigation {"layout":{"type":"flex"}} -->';`,
+    [
+        'console.log(',
+        '<!-- wp:navigation',
+        'type'
+    ],
+    ['<!--.', '-.>', '-. >', 'wp:navigation -.', '{"layout":-.}']
+);
+
+// 55. String concatenation with string literals
+test('String concatenation - dot followed by string literal',
+    `echo '<div>' . '</div>';`,
+    [
+        "console.log('<div>'  + '</div>');",
+    ],
+    ["console.log('<div>' . '</div>');"]
+);
+
+// 56. String concatenation with function calls and strings
+test('String concatenation - mixed function calls and strings',
+    `echo '<label>' . __('Text') . '</label>';`,
+    [
+        "console.log('<label>'  + __('Text')  + '</label>');",
+    ],
+    [". '</label>'", ". __"]
+);
+
+// 57. Echo with nested function calls and HTML entities
+test('Echo with nested function calls and HTML entities',
+    `echo '<span>' . sprintf(__('Hello&nbsp;%s'), $name) . '</span>';`,
+    [
+        "console.log('<span>'  + sprintf(__('Hello&nbsp;%s'), name)  + '</span>');",
+        'Hello&nbsp;%s'
+    ],
+    ['Hello&nbsp);', 'nbsp);%s']
+);
+
+// 58. Object operator in regular code (not in strings)
+test('Object operator conversion in regular statements',
+    `$errmsg = $errors->get_error_message('user_name');`,
+    [
+        'errmsg = errors.get_error_message(',
+        "('user_name')"
+    ],
+    ['errors->get_error_message', '->']
+);
+
+// 59. Multiple object operators in one line
+test('Multiple object operators in one line',
+    `$result = $user->profile->getName();`,
+    [
+        'result = user.profile.getName();'
+    ],
+    ['user->profile', 'profile->getName']
+);
+
+// 60. Object operators should be preserved in strings
+test('Object operators preserved in strings',
+    `$code = 'Use $object->method() to call';`,
+    [
+        "code = 'Use object->method() to call';",
+        '->method()'
+    ],
+    ['object.method()']
 );
 
 // Run all tests

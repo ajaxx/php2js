@@ -2,6 +2,9 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import log4js from 'log4js';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,7 +13,7 @@ const __dirname = path.dirname(__filename);
 log4js.configure({
     appenders: {
         console: { type: 'console' },
-        file: { type: 'file', filename: 'php2js-conversion.log' }
+        file: { type: 'file', filename: path.join(__dirname, '..', 'php2js-conversion.log') }
     },
     categories: {
         default: { appenders: ['console', 'file'], level: 'info' }
@@ -26,7 +29,8 @@ function parseArgs() {
         dst: path.resolve(__dirname, '..'),
         recurse: true, // Default to true
         stats: false,  // Default to false
-        logLevel: 'info' // Default to info
+        logLevel: 'info', // Default to info
+        format: false  // Default to false
     };
     for (let i = 0; i < args.length; i++) {
         if (args[i] === '--src') out.src = path.resolve(args[++i]);
@@ -40,9 +44,51 @@ function parseArgs() {
             out.stats = true;
         } else if (args[i] === '--log-level') {
             out.logLevel = args[++i].toLowerCase();
+        } else if (args[i] === '--format') {
+            out.format = true;
         }
     }
     return out;
+}
+
+// Try to load Prettier if available
+let prettier = null;
+async function loadPrettier() {
+    if (prettier !== null) return prettier;
+    
+    try {
+        prettier = require('prettier');
+        logger.debug('Prettier loaded successfully');
+        return prettier;
+    } catch (err) {
+        logger.warn('Prettier not found. Install with: npm install prettier --save-dev');
+        prettier = false; // Mark as attempted but failed
+        return null;
+    }
+}
+
+// Format code using Prettier if available
+async function formatCode(code, filePath) {
+    const prettierInstance = await loadPrettier();
+    if (!prettierInstance) {
+        return code; // Return unformatted if Prettier not available
+    }
+    
+    try {
+        const formatted = await prettierInstance.format(code, {
+            parser: 'babel',
+            filepath: filePath,
+            semi: true,
+            singleQuote: true,
+            trailingComma: 'es5',
+            tabWidth: 2,
+            printWidth: 100
+        });
+        return formatted;
+    } catch (err) {
+        logger.warn(`Prettier formatting failed for ${filePath}: ${err.message}`);
+        return code; // Return unformatted on error
+    }
 }
 
 async function* walk(dir, recurse = true) {
@@ -104,7 +150,8 @@ function phpExprToJs(expr) {
     e = e.replace(/^\$(\w+)/g, '$1');
     
     // PHP string concat '.' -> JS '+' (but not inside strings)
-    e = e.replace(/\.(?=\s*\$?\w)/g, (match, offset, fullString) => {
+    // Match . followed by whitespace and any character (variable, string, function call, etc.)
+    e = e.replace(/\.\s+/g, (match, offset, fullString) => {
         // Check if inside a string
         const before = fullString.substring(0, offset);
         let inString = false;
@@ -299,9 +346,89 @@ function convertDefine(js) {
 
 // Helper: Convert echo/print to console.log
 function convertEchoPrint(js) {
-    return js.replace(/\b(echo|print)\b\s*(.*?);/gms, (m, kw, expr) => {
-        return `console.log(${phpExprToJs(expr)});`;
-    });
+    // Need to manually parse to handle semicolons inside strings
+    let result = '';
+    let i = 0;
+    
+    while (i < js.length) {
+        // Look for echo or print keyword
+        const echoMatch = js.substring(i).match(/^(echo|print)\b/);
+        
+        if (echoMatch) {
+            const keyword = echoMatch[1];
+            const keywordStart = i;
+            i += keyword.length;
+            
+            // Skip whitespace after keyword
+            while (i < js.length && /\s/.test(js[i])) {
+                i++;
+            }
+            
+            // Now capture everything until the statement-ending semicolon
+            // respecting string boundaries
+            const exprStart = i;
+            let inString = false;
+            let stringChar = null;
+            let escaped = false;
+            let parenDepth = 0;
+            let foundSemicolon = false;
+            
+            while (i < js.length) {
+                const char = js[i];
+                
+                if (escaped) {
+                    escaped = false;
+                    i++;
+                    continue;
+                }
+                
+                if (inString) {
+                    if (char === '\\') {
+                        escaped = true;
+                    } else if (char === stringChar) {
+                        inString = false;
+                        stringChar = null;
+                    }
+                    i++;
+                    continue;
+                }
+                
+                // Not in string
+                if (char === '"' || char === "'" || char === '`') {
+                    inString = true;
+                    stringChar = char;
+                    i++;
+                    continue;
+                }
+                
+                if (char === '(') {
+                    parenDepth++;
+                } else if (char === ')') {
+                    parenDepth--;
+                } else if (char === ';' && parenDepth === 0) {
+                    // Found statement-ending semicolon
+                    foundSemicolon = true;
+                    break;
+                }
+                
+                i++;
+            }
+            
+            if (foundSemicolon) {
+                const expr = js.substring(exprStart, i).trim();
+                result += `console.log(${phpExprToJs(expr)})`;
+                // Don't include the semicolon yet - it will be added by the next iteration
+            } else {
+                // No semicolon found, keep original
+                result += js.substring(keywordStart, i);
+            }
+        } else {
+            result += js[i];
+            i++;
+        }
+    }
+    
+    return result;
 }
 
 // Helper: Convert require/include to ES6 imports
@@ -757,8 +884,21 @@ function convertStringConcatenation(js) {
 function convertObjectOperators(js) {
     logger.debug('  convertObjectOperators: Processing -> and :: operators');
     const before = js;
-    js = js.replace(/->/g, '.');
-    js = js.replace(/::/g, '.');
+    
+    // Convert -> to . but only outside of strings
+    js = js.replace(/->/g, (match, offset, fullString) => {
+        // Check if inside string or comment using existing helper
+        const context = isInsideStringOrComment(fullString, offset);
+        return context.inString ? match : '.';
+    });
+    
+    // Convert :: to . but only outside of strings
+    js = js.replace(/::/g, (match, offset, fullString) => {
+        // Check if inside string or comment using existing helper
+        const context = isInsideStringOrComment(fullString, offset);
+        return context.inString ? match : '.';
+    });
+    
     if (js !== before) {
         const arrowCount = (before.match(/->/g) || []).length;
         const colonCount = (before.match(/::/g) || []).length;
@@ -865,6 +1005,120 @@ function convertHashComments(js) {
     return js;
 }
 
+// Helper: Fix merged comment lines (post-processing)
+function fixMergedCommentLines(js) {
+    logger.debug('  fixMergedCommentLines: Fixing statements merged onto comment lines');
+    const before = js;
+    let fixCount = 0;
+    
+    // Fix line comments where code is merged after the comment
+    // Pattern: // comment text.identifier = or // comment text;identifier =
+    // Look for punctuation followed immediately by an identifier (no whitespace between punctuation and identifier)
+    js = js.replace(/^(\s*\/\/[^\n]+?)([.;!?])([a-zA-Z_$][\w$]*)/gm, (match, comment, punctuation, identifier, offset, fullString) => {
+        // Only fix if this looks like code (identifier followed by whitespace and = or ()
+        const afterMatch = fullString.substring(offset + match.length, offset + match.length + 20);
+        if (/^\s*[=\(\[]/.test(afterMatch)) {
+            fixCount++;
+            return comment + punctuation + '\n' + identifier;
+        }
+        return match;
+    });
+    
+    // Fix block comment closings where code immediately follows
+    // Pattern: */identifier (no space between */ and identifier)
+    js = js.replace(/(\*\/)([a-zA-Z_$][\w$]+)/g, (match, closing, identifier, offset, fullString) => {
+        // Only fix if this looks like code (identifier followed by whitespace and = or ()
+        const afterMatch = fullString.substring(offset + match.length, offset + match.length + 20);
+        if (/^\s*[=\(\[]/.test(afterMatch)) {
+            fixCount++;
+            return closing + '\n' + identifier;
+        }
+        return match;
+    });
+    
+    if (fixCount > 0) {
+        logger.debug(`    Fixed ${fixCount} merged comment line(s)`);
+    }
+    
+    return js;
+}
+
+// Helper: Convert multi-line single-quoted strings to template literals
+function convertMultilineStrings(js) {
+    logger.debug('  convertMultilineStrings: Converting multi-line strings to template literals');
+    const before = js;
+    let result = '';
+    let i = 0;
+    
+    while (i < js.length) {
+        const char = js[i];
+        
+        // Check for single-quoted string
+        if (char === "'") {
+            const stringStart = i;
+            i++; // Skip opening quote
+            let stringContent = '';
+            let escaped = false;
+            let hasNewline = false;
+            
+            // Scan until we find the closing quote
+            while (i < js.length) {
+                const c = js[i];
+                
+                if (escaped) {
+                    stringContent += c;
+                    escaped = false;
+                    i++;
+                    continue;
+                }
+                
+                if (c === '\\') {
+                    stringContent += c;
+                    escaped = true;
+                    i++;
+                    continue;
+                }
+                
+                if (c === "'") {
+                    // Found closing quote
+                    i++; // Skip closing quote
+                    break;
+                }
+                
+                if (c === '\n') {
+                    hasNewline = true;
+                }
+                
+                stringContent += c;
+                i++;
+            }
+            
+            // If the string contains newlines, convert to template literal
+            if (hasNewline) {
+                // Escape backticks and ${} in the content
+                const escapedContent = stringContent
+                    .replace(/\\/g, '\\\\')
+                    .replace(/`/g, '\\`')
+                    .replace(/\$\{/g, '\\${');
+                result += '`' + escapedContent + '`';
+            } else {
+                // Keep as single-quoted string
+                result += "'" + stringContent + "'";
+            }
+        } else {
+            result += char;
+            i++;
+        }
+    }
+    
+    if (result !== before) {
+        const count = (before.match(/'\n/g) || []).length;
+        logger.debug(`    Converted ${count} multi-line string(s) to template literals`);
+    }
+    
+    return result;
+}
+
 // Helper: Convert array destructuring (list)
 function convertArrayDestructuring(js) {
     logger.debug('  convertArrayDestructuring: Processing list() syntax');
@@ -911,6 +1165,9 @@ function convertPhpSyntax(js) {
     js = convertArraySyntax(js);
     js = convertArrayAppend(js);
     js = convertHashComments(js);
+    
+    // Post-processing: Fix merged comment lines
+    js = fixMergedCommentLines(js);
     
     const endLength = js.length;
     logger.debug(`convertPhpSyntax: Complete (${startLength} -> ${endLength} chars, ${endLength - startLength > 0 ? '+' : ''}${endLength - startLength} change)`);
@@ -1125,8 +1382,12 @@ function transformPhpToJs(php, relPhpPath) {
     // Remove PHP type casts early (before foreach conversion)
     js = js.replace(/\(\s*(int|integer|bool|boolean|float|double|real|string|array|object|unset)\s*\)/g, '');
 
-    // Convert PHP language constructs
+    // Convert PHP language constructs (echo, require, etc.)
     js = convertPhpConstructs(js, relPhpPath);
+
+    // Note: convertMultilineStrings disabled - it was causing issues with array literals
+    // and echo statements. PHP multi-line strings will need manual review.
+    // js = convertMultilineStrings(js);
 
     // Convert PHP syntax to JavaScript (but not classes/functions yet)
     js = convertPhpSyntax(js);
@@ -1152,7 +1413,7 @@ function calculateP90(values) {
 }
 
 async function main() {
-    const { src, dst, recurse, stats: showStats, logLevel } = parseArgs();
+    const { src, dst, recurse, stats: showStats, logLevel, format } = parseArgs();
     
     // Set log level from command line
     logger.level = logLevel;
@@ -1160,9 +1421,14 @@ async function main() {
     const stats = { processed: 0, written: 0, errors: 0 };
     const processingTimes = [];
 
-    logger.info(`Starting conversion... (recurse: ${recurse}, stats: ${showStats}, log level: ${logLevel})`);
+    logger.info(`Starting conversion... (recurse: ${recurse}, stats: ${showStats}, log level: ${logLevel}, format: ${format})`);
     logger.info(`Source: ${src}`);
     logger.info(`Destination: ${dst}`);
+    
+    // Pre-load Prettier if formatting is enabled
+    if (format) {
+        await loadPrettier();
+    }
 
     // Check if src is a file or directory
     const srcStat = await fs.stat(src);
@@ -1187,12 +1453,21 @@ async function main() {
         try {
             logger.debug(`Processing: ${file}`);
             const php = await fs.readFile(file, 'utf8');
-            const transformed = transformPhpToJs(php, rel.replace(/\\/g, '/'));
+            let transformed = transformPhpToJs(php, rel.replace(/\\/g, '/'));
+            
+            // Apply Prettier formatting if enabled
+            if (format) {
+                transformed = await formatCode(transformed, target);
+            }
+            
             await ensureDir(path.dirname(target));
             await fs.writeFile(target, transformed, 'utf8');
             stats.processed++;
             stats.written++;
             logger.info(`Converted: ${file} -> ${target}`);
+            if (format) {
+                logger.debug(`  Formatted with Prettier`);
+            }
             
             if (showStats) {
                 const elapsed = performance.now() - startTime;

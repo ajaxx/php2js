@@ -1,0 +1,188 @@
+Running PHP to JS Converter Tests
+
+================================================================================
+✓ Variable names - strip $
+✓ String concatenation - basic
+✗ String concatenation - constants
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test2.js'
+✗ String concatenation - preserve dots in strings
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test3.php'
+✓ String concatenation - multi-line with dots in strings
+✗ String concatenation - preserve dots in comments
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test5.js'
+✗ Object operator conversion
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test6.php'
+✓ Static operator conversion
+✗ foreach - key value pairs
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test8.php'
+✓ foreach - value only
+✓ elseif conversion
+✗ global keyword - variable hoisting
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test11.php'
+✗ Error control operator
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test12.php'
+✓ Error control operator - preserve in comments
+✗ die/exit conversion
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test14.php'
+✗ die variable should not convert
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test15.php'
+✓ define() conversion
+✗ function declarations
+  ✗ Missing expected: "export function myFunction(param1, param2) {"
+
+--- Generated Output ---
+//
+// Converted from PHP: test17.php
+// Source path: test17.php
+// Generated: 2026-01-03 21:48:52
+// Target: Node.js (server) + browser-friendly ES modules.
+// NOTE: This is an automated light conversion. Manual review required.
+//
+// Environment shims (Node + Browser)
+const __ENV__ = { isNode: typeof process !== 'undefined' && process.versions?.node, isBrowser: typeof window !== 'undefined' };
+
+// HTML output helper function
+function __outputHtml(lines) {
+  console.log(lines.join('\n'));
+}
+
+// Module wrapper - encapsulates all code
+// The _ parameter provides access to environment variables (GET, POST, SERVER, etc.)
+(function(_) {
+  // No global variables detected
+  
+function myFunction(param1, param2) {
+
+})({
+  GET: {},
+  POST: {},
+  SERVER: {},
+  COOKIE: {},
+  SESSION: {},
+  REQUEST: {},
+  FILES: {},
+  ENV: process?.env || {}
+});
+
+// Selective exports
+export { myFunction };
+export { __ENV__, __outputHtml };
+
+--- End Output ---
+
+✗ class declarations
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test18.php'
+✓ echo conversion
+✗ magic constants
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test20.js'
+✗ array() conversion
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test21.php'
+✗ associative array conversion
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test22.php'
+✗ comment conversion
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test23.php'
+✓ decimal numbers - preserve dots
+✗ compound assignment .=
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test25.php'
+✗ require conversion
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test26.php'
+✗ require_once conversion
+  ✗ Missing expected pattern: /\/\/ TODO: import equivalent of ABSPATH [\.\+] 'wp-includes\/version\.php' \(from require_once\)/
+
+--- Generated Output ---
+//
+// Converted from PHP: test27.php
+// Source path: test27.php
+// Generated: 2026-01-03 21:48:53
+// Target: Node.js (server) + browser-friendly ES modules.
+// NOTE: This is an automated light conversion. Manual review required.
+//
+import './functions.js';
+import './includes/class.js';
+import './wp-load.js';
+
+// Environment shims (Node + Browser)
+const __ENV__ = { isNode: typeof process !== 'undefined' && process.versions?.node, isBrowser: typeof window !== 'undefined' };
+
+// HTML output helper function
+function __outputHtml(lines) {
+  console.log(lines.join('\n'));
+}
+
+// Module wrapper - encapsulates all code
+// The _ parameter provides access to environment variables (GET, POST, SERVER, etc.)
+(function(_) {
+  // No global variables detected
+  
+// TODO: import equivalent of ABSPATH  + 'wp-includes/version.php' (from require_once)
+
+})({
+  GET: {},
+  POST: {},
+  SERVER: {},
+  COOKIE: {},
+  SESSION: {},
+  REQUEST: {},
+  FILES: {},
+  ENV: process?.env || {}
+});
+
+// Selective exports
+// No functions to export
+export { __ENV__, __outputHtml };
+
+--- End Output ---
+
+✓ String concatenation with block comments
+✓ String concatenation after function call
+✗ Alternative syntax - if/endif
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test30.php'
+✗ Alternative syntax - if/else/endif
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test31.php'
+✓ Alternative syntax - foreach/endforeach simple
+✗ Alternative syntax - foreach/endforeach key-value
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test33.php'
+✓ Alternative syntax - while/endwhile
+✗ Type casts removal
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test35.js'
+✗ Property access preservation
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test36.php'
+✗ in_array function preservation
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test37.js'
+✗ Superglobals conversion
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test38.php'
+✓ Array append operator
+✓ String literal concatenation
+✓ Equality operators
+✗ Nested arrays
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test42.php'
+✓ String concatenation with block comment in function
+✗ Blank lines preservation
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test44.php'
+✓ foreach with method call
+✓ Single quote in single-line comment
+✗ Comments with quotes
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test47.php'
+✓ require_once after comment with quote
+✗ Array destructuring with list()
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test49.php'
+✗ define() scope handling
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test50.php'
+✗ Array key named include
+  Error: Failed to read output: ENOENT: no such file or directory, unlink 'D:\Src\php2js\regex\test-input\test51.php'
+✓ HTML entity semicolons in echo statements
+✓ Multiple HTML entities in echo
+✗ HTML comments in string literals
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test54.php'
+✓ HTML comments should not be corrupted by -> conversion
+✗ String concatenation - dot followed by string literal
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test56.php'
+✓ String concatenation - mixed function calls and strings
+✗ Echo with nested function calls and HTML entities
+  Error: Failed to read output: EPERM: operation not permitted, unlink 'D:\Src\php2js\regex\test-input\test58.js'
+✓ Object operator conversion in regular statements
+✓ Multiple object operators in one line
+✓ Object operators preserved in strings
+================================================================================
+
+Tests: 28 passed, 34 failed, 62 total
